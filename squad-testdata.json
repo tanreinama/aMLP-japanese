@@ -1,0 +1,45 @@
+{
+  "data":[{
+    "paragraphs":[{
+      "context":"F-22戦闘機とは、ロッキード・マーティン社とボーイング社が共同開発したステルス戦闘機。レーダーや赤外線探知装置などからの隠密性が極めて高く、第5世代戦闘機に分類され、世界最高水準の戦闘能力を有するとされる。2006年にアラスカで行われた「ノーザン・エッジ演習」においては、延べ144機を「仮想撃墜」し、F-22は1機の損害も出さなかった。 愛称は猛禽類の意味のラプター。乗員は1名。全長19.56m、全高5.41m、翼幅13.11m。最大離陸重量は26309kg。巡航速度はマッハ1.82でスーパークルーズ性能を持つ。フェリー飛行時航続距離は3200km。F-22を当初の750機導入する計画の時点では、全体の計画コストは約650億ドルと見込まれていたが、2001年に国防調達委員会が、F-22の生産数を295機まで削減。さらに2005年には277機とされた。生産数の低下により、調達コストは増大し、F-22一機あたりの価格は1億5千万ドルほどになると見られている。",
+      "qas":[
+        {
+          "question_id":1,
+          "question":"ロッキード・マーティン社とボーイング社が共同開発したステルス戦闘機は？",
+          "answers":[{"text":"","answer_start":0}],
+          "is_impossible":false
+        },
+        {
+          "question_id":2,
+          "question":"F-22戦闘機の愛称は？",
+          "answers":[{"text":"","answer_start":0}],
+          "is_impossible":false
+        },
+        {
+          "question_id":3,
+          "question":"F-22戦闘機一機あたりの価格は？",
+          "answers":[{"text":"","answer_start":0}],
+          "is_impossible":false
+        },
+        {
+          "question_id":4,
+          "question":"F-22戦闘機の航続距離は？",
+          "answers":[{"text":"","answer_start":0}],
+          "is_impossible":false
+        },
+        {
+          "question_id":5,
+          "question":"F-22戦闘機の巡航速度は？",
+          "answers":[{"text":"","answer_start":0}],
+          "is_impossible":false
+        },
+        {
+          "question_id":6,
+          "question":"F-22の生産数が削減された理由は？",
+          "answers":[{"text":"","answer_start":0}],
+          "is_impossible":false
+        },
+      ]
+    }]
+  }]
+}
