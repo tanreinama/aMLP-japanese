@@ -51,13 +51,13 @@ aMLP-japaneseとは、Tensorflow2で実装したaMLPモデルに、40GB超の日
 
 | モデル名     | ダウンロードURL                                              | パラメーター数 | 学習データサイズ |
 | ------------ | ------------------------------------------------------------ | -------------- | ---------------- |
-| aMLP-base-ja | [https://nama.ne.jp/models/aMLP-base-ja.tar.bz2](https://nama.ne.jp/models/aMLP-base-ja.tar.bz2) （[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-base-ja.tar.bz2)） | 136M           | 40GB～           |
+| aMLP-base-ja | [https://nama.ne.jp/models/aMLP-base-ja.tar.bz2](https://nama.ne.jp/models/aMLP-base-ja.tar.bz2) （[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-base-ja.tar.bz2)） | 67,923,648     | 40GB～           |
 
 - 質疑応答モデル
 
 | モデル名           | ダウンロードURL                                              | パラメーター数 | 学習データサイズ |
 | ------------------ | ------------------------------------------------------------ | -------------- | ---------------- |
-| aMLP-SQuAD-base-ja | [https://nama.ne.jp/models/aMLP-SQuAD-base-ja.bz2](https://nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2)） | 203M           | 200K文章         |
+| aMLP-SQuAD-base-ja | [https://nama.ne.jp/models/aMLP-SQuAD-base-ja.bz2](https://nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2)） | 67,924,674     | 200K文章         |
 
 
 
