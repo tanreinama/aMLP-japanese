@@ -41,7 +41,7 @@ aMLP-japaneseとは、Tensorflow2で実装したaMLPモデルに、40GB超の日
 
 ## TODO
 
-✓baseモデルの公開（2021/11/14）<br>✓SQuADモデルの公開（2021/11/14）
+✓baseモデルの公開（2021/11/13）<br>✓SQuADモデルの公開（2021/11/13）
 
 
 
