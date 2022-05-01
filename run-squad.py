@@ -38,6 +38,8 @@ parser.add_argument('--num_epochs', metavar='N', type=float, default=2, help='Ma
 parser.add_argument('--learning_rate', type=float, default=1e-5, help='Training learning rate for Adam.')
 parser.add_argument('--restore_from', type=str, default='', help='checkpoint name for restore training.')
 
+parser.add_argument("--verbose", action='store_true' )
+
 def read_squad_json(filename, to_val=False):
     with open(filename) as f:
         squad = json.loads(f.read())
@@ -197,8 +199,8 @@ def main():
         def encode_json(filename):
             result_chunks = []
             for context, question, answer_start, answer_end, question_id, answer in zip(*read_squad_json(filename)):
-                if '？' not in question:
-                    question = question.reulace('?', '？')
+                if len(question) > 0 and '？' not in question:
+                    question = question.replace('?', '？')
                     if '？' not in question:
                         question = question + '？'
                 enc_context, ctx_posisions = enc.encode(context, clean=False, position=True)
@@ -360,10 +362,20 @@ def main():
             question = [res["question"] for res in result]
             answer = [res["answer"] for res in result]
             index = np.arange(len(result))
-            print('Question\tAnswer')
+            if not args.verbose:
+                print('Question\tAnswer')
             for qid in np.unique(question_id):
                 i = sorted(index[np.where(question_id == qid)])[0]
-                print(question[i]+'\t'+answer[i])
+                if args.verbose:
+                    print("[Context]")
+                    print(result[i]["context"])
+                    if len(question[i]) > 0:
+                        print("[Question]")
+                        print(question[i])
+                    print("[Answer]")
+                    print(answer[i])
+                else:
+                    print(question[i]+'\t'+answer[i])
             return
 
         avg_loss = (0.0, 0.0)
@@ -387,7 +399,10 @@ def main():
                             time=time.time() - start_time,
                             loss=v_loss,
                             avg=avg_loss[0] / avg_loss[1])
-                print(log)
+                if args.verbose:
+                    print(log)
+                else:
+                    print("%08dstep\r"%counter, end="")
                 if log_dir != '':
                     log_text.write(log+'\n')
                     log_text.flush()
@@ -422,10 +437,13 @@ def main():
                                     val=val)
                         if val > best_score[1]:
                             best_score[1] = val
-                    print("########")
-                    print(log)
-                    print(f'best training score: {best_score[0]} validation score: {best_score[1]}')
-                    print("########")
+                    if args.verbose:
+                        print("########")
+                        print(log)
+                        print(f'best training score: {best_score[0]} validation score: {best_score[1]}')
+                        print("########")
+                    else:
+                        print("%08dstep"%counter,f'validation score: {val}')
                     log = '{counter},{epoch},{val}'.format(
                                 counter=counter,
                                 epoch=get_epoch(),

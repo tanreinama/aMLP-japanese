@@ -1,6 +1,6 @@
 # aMLP-japanese
 
-Japanese aMLP Pretrained Model
+Japanese aMLP Pretrained Model Japanese / [English](README-en.md)
 
 aMLPとは、[Liu, Daiらが提案](https://arxiv.org/abs/2105.08050)する、Transformerモデルです。
 
@@ -18,6 +18,9 @@ aMLPとは、[Liu, Daiらが提案](https://arxiv.org/abs/2105.08050)する、Tr
 
 ***<font color='red'>New</font>***
 
+- 2022/5/1 - 日本語用の文章要約モデルを公開しました
+- 2022/5/1 - 日本語用のlargeモデルを公開しました
+- 2022/5/1 - PyTorch用のモデルの変換とSQuAD実行コードを公開しました
 - 2021/11/13 - 事前学習済みbaseモデルおよびSQuADモデルを公開しました
 
 
@@ -39,29 +42,34 @@ aMLP-japaneseとは、Tensorflow2で実装したaMLPモデルに、40GB超の日
 
 
 
-## TODO
-
-✓baseモデルの公開（2021/11/13）<br>✓SQuADモデルの公開（2021/11/13）
-
-
-
 ## 公開モデル
 
 - 事前学習モデル
 
-| モデル名     | ダウンロードURL                                              | パラメーター数 | 学習データサイズ |
-| ------------ | ------------------------------------------------------------ | -------------- | ---------------- |
-| aMLP-base-ja | [https://nama.ne.jp/models/aMLP-base-ja.tar.bz2](https://nama.ne.jp/models/aMLP-base-ja.tar.bz2) （[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-base-ja.tar.bz2)） | 67,923,648     | 40GB～           |
+| モデル名     | ダウンロードURL                                              | パラメーター数 |
+| ------------ | ------------------------------------------------------------ | -------------- |
+| aMLP-base-ja | [https://nama.ne.jp/models/aMLP-base-ja.tar.bz2](https://nama.ne.jp/models/aMLP-base-ja.tar.bz2) （[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-base-ja.tar.bz2)） | 67,923,648     |
+| aMLP-large-ja | [https://nama.ne.jp/models/aMLP-large-ja.tar.bz2](https://nama.ne.jp/models/aMLP-large-ja.tar.bz2) （[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-large-ja.tar.bz2)） | 182,308,032     |
 
 - 質疑応答モデル
 
 | モデル名           | ダウンロードURL                                              | パラメーター数 | 学習データサイズ |
 | ------------------ | ------------------------------------------------------------ | -------------- | ---------------- |
-| aMLP-SQuAD-base-ja | [https://nama.ne.jp/models/aMLP-SQuAD-base-ja.bz2](https://nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2)） | 67,924,674     | 200K文章         |
+| aMLP-SQuAD-base-ja | [https://nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2](https://nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-SQuAD-base-ja.tar.bz2)） | 67,924,674     | 200K文章         |
+| aMLP-SQuAD-large-ja | [https://nama.ne.jp/models/aMLP-SQuAD-large-ja.tar.bz2](https://nama.ne.jp/models/aMLP-SQuAD-large-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-SQuAD-large-ja.tar.bz2)） | 182,309,570    | 200K文章         |
+
+- 文章要約モデル
+| モデル名           | ダウンロードURL                                              | パラメーター数 | 学習データサイズ |
+| ------------------ | ------------------------------------------------------------ | -------------- | ---------------- |
+| aMLP-SQuAD-large-ja | [https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2](https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)） | 182,309,570    | 200K文章         |
 
 
 
 # 質疑応答モデル
+
+モデル構造：
+
+![squad](squad.png)
 
 
 
@@ -126,7 +134,50 @@ $ python run-squad.py --restore_from aMLP-SQuAD-base-ja --dataset squad-testdata
 
 
 
+# 抽出型文章要約
+
+モデル構造：
+
+![summarize](summarize.png)
+
+
+
+## 使い方
+
+
+
+文章要約モデルは、SQuADタスクと同じ形式で作成されています
+
+学習済みモデルファイルをダウンロードして展開します
+
+```sh
+$ wget https://www.nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2
+$ tar xvfj aMLP-SQuAD-large-ja.tar.bz2
+```
+
+要約したい文章は、SQuAD形式のJSONファイル内のContextに入れ、質問文はなし（空文字）にします
+
+質疑応答モデルと同様に、「run-squad.py」で実行すると、要約文が解答の代わりに表示されます
+
+```sh
+$ python run-squad.py --restore_from aMLP-Summalizer-large-ja --pred_dataset summalize-testdata.json --verbose
+[Context]
+東京株式市場において日経平均株価が値上がりし、3万670円10銭の値で終えた。株高の背景には新型コロナウイルス感染拡大の終息と景気回復への期待感があり、今後は企業業績の回復が焦点になる。日経平均株価が3万円の大台を回復するのは約30年半ぶり。関係者 には過熱感を警戒する見方もあり、しばらくは国内外の感染状況を見ながらの取り引きが続きそう。トピックスも21円16銭値上がりし、2118円87銭で終える。出来高は13億3901万株。
+[Answer]
+日経平均株価が3万円の大台を回復するのは約30年半ぶり
+[Context]
+リーガ・エスパニョーラのレガネスはバジャドリードと対戦。23分、エリア内でバジャドリードのハンドによりPKを獲得するも惜しくも外れる。その後の30分にはオスカル・ロドリゲスが先制点を挙げる。1点ビハインドのバジャドリードは49分、エネス・ウナルがゴ ールを決めるがオフサイドの判定でゴールは取り消された。試合はそのままレガネスが1対0で逃げ切る。
+[Answer]
+試合はそのままレガネスが1対0で逃げ切る
+```
+
+
+
 # クラス分類モデル
+
+モデル構造：
+
+![classifier](classificate.png)
 
 
 
@@ -226,7 +277,9 @@ text/livedoor-homme/livedoor-homme-6052744.txt,livedoor-homme,livedoor-homme
 
 # テキストの穴埋め
 
+モデル構造：
 
+![mlm](mlm.png)
 
 Masked Language Modelとして実行します。aMLPのモデルは入力されたテキスト内の「[MASK]」部分を予測します
 
@@ -243,13 +296,50 @@ $ python run-mlm.py --context "俺の名前は坂本[MASK]。何処にでもい�
 
 # 文章のベクトル化
 
+モデル構造：
 
+![vectorize](vectorize.png)
 
 [CLS]トークンに対応するベクトル表現を得ます。「--output」を指定するとファイルにカンマ区切りのテキストでファイルに保存します
 
 ```sh
 $ python run-vectrize.py --context "こんにちは、世界。" --model aMLP-base-ja
 [1.777146577835083, 0.5332596898078918, 0.07858406007289886, 0.5532811880111694, 0.8075544238090515, 1.3260560035705566, 0.6111544370651245, 2.338435173034668, 1.0313552618026733, ・・・
+```
+
+
+
+# PyTorch版
+
+
+
+PyTorch版のモデルは、TensorFlow版のモデルを変換して作成します。
+
+現在、学習済みモデルの変換プログラムと、SQuADタスクの実行コードがあります。
+
+モデルの変換は「tfmodel2torch.py」で行います。
+
+```sh
+$ cd pytorch
+$ python tfmodel2torch.py --tf_model_dir ../aMLP-SQuAD-base-ja --output aMLP-SQuAD-base-ja.pt
+has_voc: True is_classifier: False is_squad: True
+$ ls aMLP-SQuAD-base-ja.*
+aMLP-SQuAD-base-ja.json  aMLP-SQuAD-base-ja.pt  aMLP-SQuAD-base-ja.txt
+```
+
+SQuADタスクの実行は、「test-squad.py」で行います。
+
+全ての解答の候補は、「squad-predicted.json」という名前で保存されます
+
+```sh
+$ python test-squad.py --pred_dataset ../squad-testdata.json --model aMLP-SQuAD-base-ja.pt
+Question        Answer
+ロッキード・マーティン社とボーイング社が共同開発したステルス戦闘機は？  F-22戦闘機
+F-22戦闘機の愛称は？    猛禽類の意味のラプター
+F-22戦闘機一機あたりの価格は？  1億5千万ドル
+F-22戦闘機の航続距離は？        3200km
+F-22戦闘機の巡航速度は？        マッハ1.82
+F-22の生産数が削減された理由は？        調達コスト
 ```
 
 
