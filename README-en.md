@@ -12,9 +12,9 @@ Roughly speaking, it is a model with better performance that can be used instead
 
 ***<font color='red'>New</font>***
 
-- 2022/4/29 - The sentence summary model for Japanese has been released.
-- 2022/4/29 - Large model for Japanese has been released
-- 2022/4/29 - Model conversion and SQuAD executable code for PyTorch have been released.
+- 2022/5/1 - The sentence summary model for Japanese has been released.
+- 2022/5/1 - Large model for Japanese has been released
+- 2022/5/1 - Model conversion and SQuAD executable code for PyTorch have been released.
 - 2021/11/13 - Pre-trained base model and SQuAD model have been released
 
 
