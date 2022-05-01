@@ -1,6 +1,6 @@
 # aMLP-japanese
 
-Japanese aMLP Pretrained Model Japanese / [English](README-en.md)
+Japanese aMLP Pretrained Model --- Japanese / [English](README-en.md)
 
 aMLPとは、[Liu, Daiらが提案](https://arxiv.org/abs/2105.08050)する、Transformerモデルです。
 
@@ -59,9 +59,10 @@ aMLP-japaneseとは、Tensorflow2で実装したaMLPモデルに、40GB超の日
 | aMLP-SQuAD-large-ja | [https://nama.ne.jp/models/aMLP-SQuAD-large-ja.tar.bz2](https://nama.ne.jp/models/aMLP-SQuAD-large-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-SQuAD-large-ja.tar.bz2)） | 182,309,570    | 200K文章         |
 
 - 文章要約モデル
+
 | モデル名           | ダウンロードURL                                              | パラメーター数 | 学習データサイズ |
 | ------------------ | ------------------------------------------------------------ | -------------- | ---------------- |
-| aMLP-SQuAD-large-ja | [https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2](https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)） | 182,309,570    | 200K文章         |
+| aMLP-Summalizer-large-ja | [https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2](https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)（[予備URL](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)） | 182,309,570    | 200K文章         |
 
 
 

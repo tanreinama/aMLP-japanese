@@ -1,6 +1,6 @@
 # aMLP-japanese
 
-Japanese aMLP Pretrained Model [Japanese](README.md) / English
+Japanese aMLP Pretrained Model --- [Japanese](README.md) / English
 
 aMLP is a Transformer model proposed by [Liu, Dai et al.](Https://arxiv.org/abs/2105.08050).
 
@@ -36,9 +36,10 @@ Roughly speaking, it is a model with better performance that can be used instead
 | aMLP-SQuAD-large-ja | [https://nama.ne.jp/models/aMLP-SQuAD-large-ja.bz2](https://nama.ne.jp/models/aMLP-SQuAD-large-ja.tar.bz2)（[Preliminary](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-SQuAD-large-ja.tar.bz2)） | 182,309,570    | 200K articles         |
 
 - Japanese Text Summarization Models
+
 | Model Name         | Download URL                                                 | Parameter Number | Training Data Size |
 | ------------------ | ------------------------------------------------------------ | -------------- | ---------------- |
-| aMLP-SQuAD-large-ja | [https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2](https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)（[Preliminary](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)） | 182,309,570    | 200K articles         |
+| aMLP-Summalizer-large-ja | [https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2](https://nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)（[Preliminary](https://s3.ap-northeast-1.amazonaws.com/ailab.nama.ne.jp/models/aMLP-Summalizer-large-ja.tar.bz2)） | 182,309,570    | 200K articles         |
 
 
 # SQuAD Model
