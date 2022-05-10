@@ -41,7 +41,7 @@ parser.add_argument('--restore_from', type=str, default='', help='checkpoint nam
 parser.add_argument("--verbose", action='store_true' )
 
 def read_squad_json(filename, to_val=False):
-    with open(filename) as f:
+    with open(filename,,encoding="utf-8") as f:
         squad = json.loads(f.read())
     context, question, answer_start, answer_end, question_id, answer = [], [], [], [], [], []
     num_quest = 0
@@ -131,7 +131,7 @@ def main():
     log_dir = args.log_dir
     max_answer_length = args.max_answer_length
 
-    with open(bpe_path) as f:
+    with open(bpe_path,,encoding="utf-8") as f:
         ww = np.sum([1 if ('##' in l) else 0 for l in f.readlines()]) > 0
     enc = get_encoder(bpe_path, 'emoji.json', ww)
 
